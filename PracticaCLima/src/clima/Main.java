@@ -36,7 +36,7 @@ public class Main {
     private void createClassifyer() {
         FileReader fr = null;
         try {
-            fr = new FileReader(new File("PracticaCLima/src/clima/clima.arff"));
+            fr = new FileReader(new File("clima.arff"));
             Instances instancia = new Instances(fr);
             instancia.setClassIndex(8);
             Classifier mp = new RandomTree(); 
@@ -65,8 +65,8 @@ public class Main {
     private void aplicar() {
         try {
             String[] valoresAtributos = {"Llueve", "No llueve"};
-            Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("PracticaCLima/climaModel.model");
-            ConverterUtils.DataSource source = new ConverterUtils.DataSource("PracticaCLima/pruebaClimaReducida.arff");
+            Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("climaModel.model");
+            ConverterUtils.DataSource source = new ConverterUtils.DataSource("pruebaClimaReducida.arff");
             Instances data = source.getDataSet();
             data.setClassIndex(8);
             for (int i = 0; i < data.size(); i++) {
