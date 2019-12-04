@@ -161,6 +161,10 @@ public static void main(String[] args) {
     }
 ~~~
     
+El output que recibimos es el siguiente:
+<p align="center">
+  <img src="/img/Resultado.png" title="Resultado" widht=700px align="center">
+</p>
 
 
 
