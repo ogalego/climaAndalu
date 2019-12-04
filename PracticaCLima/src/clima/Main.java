@@ -33,10 +33,10 @@ public class Main {
         pw.aplicar();
     }
     
-    public void createClassifyer() {
+    private void createClassifyer() {
         FileReader fr = null;
         try {
-            fr = new FileReader(new File("C:\\Users\\pedro\\IdeaProjects\\climaAndalu\\PracticaCLima\\src\\clima\\clima.arff"));
+            fr = new FileReader(new File("PracticaCLima/src/clima/clima.arff"));
             Instances instancia = new Instances(fr);
             instancia.setClassIndex(8);
             Classifier mp = new RandomTree(); 
@@ -70,7 +70,7 @@ public class Main {
             Instances data = source.getDataSet();
             data.setClassIndex(8);
             for (int i = 0; i < data.size(); i++) {
-                System.out.println(valoresAtributos[ (int) clasificador.classifyInstance(data.instance(i))]);
+                System.out.println(i+": "+valoresAtributos[ (int) clasificador.classifyInstance(data.instance(i))]);
             }
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
