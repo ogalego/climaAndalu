@@ -66,20 +66,22 @@ Hemos evaluado los datos con los distintos algoritmos:
   <img src="/img/Bayes.png" title="NaiveBayes" align="center">
 </p>
 
-### J48: 
+### J48: Correctly clasified 87.7234%
 <p align="center">
   <img src="/img/J48.png" title="J48" align="center">
 </p>
 
-### RandomForest
+### RandomForest: Correctly clasified 87.7234%
 <p align="center">
   <img src="/img/RandomForest.png" title="NaiveBayes" align="center">
 </p>
 
-### RandomTree
+### RandomTree: Correctly clasified 88.5362%
 <p align="center">
   <img src="/img/RandomTree.png" title="NaiveBayes" align="center">
 </p>
+
+Comparando los datos obtenidos de estos algoritmos, el mejor para clasificar, en nuestro caso, es el RandomTree. Ya que es el que mayor porcentaje de acierto al clasificar tiene.
 
 
 
