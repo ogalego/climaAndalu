@@ -33,8 +33,26 @@ Las características que hemos tenido en cuenta, ya que nos parecían muy releve
 16. CV3: Minutos con direccion de viento en el tercer cuadrante.
 17. CV4: Minutos con direccion de viento en el cuarto cuadrante.
 18. DIRECCION: Direccion dominante del viento.
+19. HORAS:
+20. H_T:
+21. H_HR:
+22. H_R:
+23. H_LL:
+24. H_TS:
+25. H_V:
+26. H_D:
+27. CALCULOS:
+28. MTMEN0:
+29. MTMEN7:
+30. MTMA30:
+31. MTMA50:
 ~~~
 **4. Obtener un fichero .arff con los hechos codificados de acuerdo con las características anteriormente elegidas.** Este fichero servirá como entrada para la herramienta Weka2.
+
+Con los datos obtenidos hemos limpiados las cabeceras y añadido los siguientes datos para que sea compatible con el Weka.
+<p align="center">
+  <img src="/img/arff.png" title="arffFormat" align="center">
+ </p>
 
 
 
