@@ -61,28 +61,106 @@ Hemos evaluado los datos con los distintos algoritmos:
 - RandomForest
 - RandomTree
 
-### NaiveBayes: Correctly clasified 87.7234%
+<h4> NaiveBayes: Correctly clasified 87.7234%</h4>
 <p align="center">
-  <img src="/img/Bayes.png" title="NaiveBayes" align="center">
+  <img src="/img/Bayes.png" title="NaiveBayes" width=700px align="center">
 </p>
 
-### J48: Correctly clasified 87.7234%
+<h4> J48: Correctly clasified 87.7234%</h4>
 <p align="center">
-  <img src="/img/J48.png" title="J48" align="center">
+  <img src="/img/J48.png" title="J48" width=700px align="center">
 </p>
 
-### RandomForest: Correctly clasified 87.7234%
+<h4> RandomForest: Correctly clasified 87.7234%</h4>
 <p align="center">
-  <img src="/img/RandomForest.png" title="NaiveBayes" align="center">
+  <img src="/img/RandomForest.png" title="NaiveBayes" width=700px align="center">
 </p>
 
-### RandomTree: Correctly clasified 88.5362%
+<h4> RandomTree: Correctly clasified 88.5362%</h4>
 <p align="center">
-  <img src="/img/RandomTree.png" title="NaiveBayes" align="center">
+  <img src="/img/RandomTree.png" title="NaiveBayes" width=700px align="center">
 </p>
 
-Comparando los datos obtenidos de estos algoritmos, el mejor para clasificar, en nuestro caso, es el RandomTree. Ya que es el que mayor porcentaje de acierto al clasificar tiene.
 
+Comparando los datos obtenidos de estos algoritmos, el mejor para clasificar, en nuestro caso, es el **RandomTree**. Ya que es el que mayor porcentaje de acierto al clasificar tiene.
+
+**6. Generar en Java un objeto persistente con el algoritmo obtenido en el
+paso 5.** También se realizará con Weka.
+
+1. Usamos FileReader para acceder al archivo del cual, a partir de el, vamos a crear nuestro modelo..
+2. Creamos la instancia y le decimos en base a que atributo queremos clasificar.
+3. Creamos el clasificador, en nuestro caso, el RandomTree. Y le pasamos la instancia.
+4. Utilizamos ObjectOutputStream para guardar el modelo resultante en un archivo de texto('climaModel.model').
+
+
+~~~
+private void createClassifyer() {
+        FileReader fr = null;
+        try {
+            fr = new FileReader(new File("PracticaCLima/src/clima/clima.arff"));
+            Instances instancia = new Instances(fr);
+            instancia.setClassIndex(8);
+            Classifier mp = new RandomTree(); 
+            mp.buildClassifier(instancia);
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("climaModel.model"));
+            oos.writeObject(mp);
+            oos.flush();
+            oos.close();
+            fr.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+~~~
+
+
+
+**7. Implementar un prototipo de aplicación que consulte el objeto persistente generado en el paso 6.** La aplicación cargará en memoria el objeto persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto) (véase la figura 1.2).
+
+1. El model clasificara en funcion del parametro que le hemos dado (@ATTRIBUTE class {VERDADERO,FALSO}).
+  - Verdadero = Llueve.
+  - Falso = No llueve.
+2. Cargamos el clasificador obtenido en el apartado 6.
+3. Como data source le damos unos datos preparados sin clasificar, son 31 lineas de prueba.
+4. Introducimos el parámetro a clasificar (@ATTRIBUTE class {VERDADERO,FALSO}).
+5. Bucle *for* para iterar sobre cada una de las lineas de nuestra prueba y obtener su clasificacion segun nuestro modelo. 
+~~~
+private void aplicar() {
+        try {
+            String[] valoresAtributos = {"llueve", "no llueve"};
+            Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("PracticaCLima/climaModel.model");
+            ConverterUtils.DataSource source = new ConverterUtils.DataSource("PracticaCLima/pruebaClimaReducida.arff");
+            Instances data = source.getDataSet();
+            data.setClassIndex(8);
+            for (int i = 0; i < data.size(); i++) {
+                System.out.println(valoresAtributos[ (int) clasificador.classifyInstance(data.instance(i))]);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+~~~    
+
+Llamamos a los dos metodos desde nuestro main():
+~~~
+public static void main(String[] args) {
+        Main pw = new Main();
+        pw.createClassifyer();
+        pw.aplicar();
+    }
+~~~
+    
 
 
 
