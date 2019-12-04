@@ -1,18 +1,18 @@
 # Practica 3 - Aprendizaje Automático
 **1.- Elegir el problema.** *La predicción de resultados de partidos en la ATP o en la WTA de tenis, una liga deportiva, una competición de deporte electrónico, o cualquier otro problema del que se dispongan de datos suficientes como para aplicar algoritmos de aprendizaje automático.*
 
-En nuestro caso hemos optado por el clima en Andalucia para aplicar algoritmos de aprendizaje. 
+En nuestro caso hemos optado por el clima en Andalucía para aplicar algoritmos de aprendizaje. 
 
 **2. Identificar la fuente de datos.** *Es necesario disponer de una serie de
 datos históricos que sirvan para que el sistema aprenda.*
 
-Nuestra fuente de datos la hemos obtenido en la pagina web de la junta de Andalucia.
+Nuestra fuente de datos la hemos obtenido en la página web de la junta de Andalucía [Junta de Andalucía](http://www.juntadeandalucia.es/medioambiente/site/web/rediam/).
 
 **3. Identificar las características relevantes de los hechos.** *Por ejemplo, en
 la predicción del resultado de un encuentro de tenis, algunas características importantes pueden ser la posición en el ranking de cada jugador,la superficie en que se juega, la edad de cada jugador, etc*
 
 
-Las características que hemos tenido en cuenta, ya que nos parecían muy releventas son:
+Las características que hemos tenido en cuenta, ya que nos parecían muy relevantes, son:
 
 ~~~
 1. COD_EST: Código de la estacion metereologica.
@@ -47,14 +47,15 @@ Las características que hemos tenido en cuenta, ya que nos parecían muy releve
 30. MTMA30:
 31. MTMA50:
 ~~~
-**4. Obtener un fichero .arff con los hechos codificados de acuerdo con las características anteriormente elegidas.** Este fichero servirá como entrada para la herramienta Weka2.
+**4. Obtener un fichero .arff con los hechos codificados de acuerdo con las características anteriormente elegidas.** *Este fichero servirá como entrada para la herramienta Weka2.*
 
 Con los datos obtenidos hemos limpiados las cabeceras y añadido los siguientes datos para que sea compatible con el Weka.
 <p align="center">
   <img src="/img/arff.png" title="arffFormat" align="center">
 </p>
 
-**5. Evaluar distintos algoritmos de aprendizaje automático con los datos obtenidos.** Este paso se llevará a cabo con la herramienta Weka, y tendrá como salida el algoritmo con mejor rendimiento para los datos datos.
+**5. Evaluar distintos algoritmos de aprendizaje automático con los datos obtenidos.** *Este paso se llevará a cabo con la herramienta Weka, y tendrá como salida el algoritmo con mejor rendimiento para los datos datos.*
+
 Hemos evaluado los datos con los distintos algoritmos:
 - NaiveBayes
 - J48
@@ -82,10 +83,10 @@ Hemos evaluado los datos con los distintos algoritmos:
 </p>
 
 
-Comparando los datos obtenidos de estos algoritmos, el mejor para clasificar, en nuestro caso, es el **RandomTree**. Ya que es el que mayor porcentaje de acierto al clasificar tiene.
+Comparando los datos obtenidos de estos algoritmos, el mejor para clasificar en nuestro caso, es el **RandomTree**. Ya que es el que mayor porcentaje de acierto obtiene al clasificar.
 
 **6. Generar en Java un objeto persistente con el algoritmo obtenido en el
-paso 5.** También se realizará con Weka.
+paso 5.** *También se realizará con Weka.*
 
 1. Usamos FileReader para acceder al archivo del cual, a partir de el, vamos a crear nuestro modelo..
 2. Creamos la instancia y le decimos en base a que atributo queremos clasificar.
@@ -126,7 +127,7 @@ private void createClassifyer() {
 
 
 
-**7. Implementar un prototipo de aplicación que consulte el objeto persistente generado en el paso 6.** La aplicación cargará en memoria el objeto persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto) (véase la figura 1.2).
+**7. Implementar un prototipo de aplicación que consulte el objeto persistente generado en el paso 6.** *La aplicación cargará en memoria el objeto persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto) (véase la figura 1.2).*
 
 1. El model clasificara en funcion del parametro que le hemos dado (@ATTRIBUTE class {VERDADERO,FALSO}).
   - Verdadero = Llueve.
