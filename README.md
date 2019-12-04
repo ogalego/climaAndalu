@@ -52,7 +52,15 @@ Las características que hemos tenido en cuenta, ya que nos parecían muy releve
 Con los datos obtenidos hemos limpiados las cabeceras y añadido los siguientes datos para que sea compatible con el Weka.
 <p align="center">
   <img src="/img/arff.png" title="arffFormat" align="center">
- </p>
+</p>
+
+**5. Evaluar distintos algoritmos de aprendizaje automático con los datos obtenidos.** Este paso se llevará a cabo con la herramienta Weka, y tendrá como salida el algoritmo con mejor rendimiento para los datos datos.
+<p align="center">
+  <img src="/img/RandomForest.png" title="arffFormat" align="center">
+</p>
+
+
+
 
 
 
