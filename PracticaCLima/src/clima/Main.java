@@ -64,7 +64,7 @@ public class Main {
 
     private void aplicar() {
         try {
-            String[] valoresAtributos = {"llueve", "no llueve"};
+            String[] valoresAtributos = {"Llueve", "No llueve"};
             Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("PracticaCLima/climaModel.model");
             ConverterUtils.DataSource source = new ConverterUtils.DataSource("PracticaCLima/pruebaClimaReducida.arff");
             Instances data = source.getDataSet();
