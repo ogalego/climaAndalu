@@ -1,4 +1,4 @@
-# Practica 3 - Aprendizaje Automatico
+# Practica 3 - Aprendizaje Automático
 **1.- Elegir el problema.** *La predicción de resultados de partidos en la ATP o en la WTA de tenis, una liga deportiva, una competición de deporte electrónico, o cualquier otro problema del que se dispongan de datos suficientes como para aplicar algoritmos de aprendizaje automático.*
 
 En nuestro caso hemos optado por el clima en Andalucia para aplicar algoritmos de aprendizaje. 
@@ -55,8 +55,30 @@ Con los datos obtenidos hemos limpiados las cabeceras y añadido los siguientes 
 </p>
 
 **5. Evaluar distintos algoritmos de aprendizaje automático con los datos obtenidos.** Este paso se llevará a cabo con la herramienta Weka, y tendrá como salida el algoritmo con mejor rendimiento para los datos datos.
+Hemos evaluado los datos con los distintos algoritmos:
+- NaiveBayes
+- J48
+- RandomForest
+- RandomTree
+
+### NaiveBayes: Correctly clasified 87.7234%
 <p align="center">
-  <img src="/img/RandomForest.png" title="arffFormat" align="center">
+  <img src="/img/Bayes.png" title="NaiveBayes" align="center">
+</p>
+
+### J48: 
+<p align="center">
+  <img src="/img/J48.png" title="J48" align="center">
+</p>
+
+### RandomForest
+<p align="center">
+  <img src="/img/RandomForest.png" title="NaiveBayes" align="center">
+</p>
+
+### RandomTree
+<p align="center">
+  <img src="/img/RandomTree.png" title="NaiveBayes" align="center">
 </p>
 
 
